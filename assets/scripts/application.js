@@ -11,18 +11,21 @@ $('.parallax-window--trading-demo').parallax({ imageSrc: 'images/bg-trading-01.j
 $('.parallax-window--trading-real').parallax({ imageSrc: 'images/bg-trading-02.jpg' });
 $('.parallax-window--trading-instrument').parallax({ imageSrc: 'images/bg-trading-03.jpg' });
 $('.parallax-window--trading-payment').parallax({ imageSrc: 'images/bg-trading-04.jpg' });
-$('.parallax-window--trading-platforms').parallax({ imageSrc: 'images/bg-trading-05.jpg' });
+$('.parallax-window--trading-platforms').parallax({ imageSrc: 'images/bg-trading-06.jpg' });
 $('.parallax-window--investment-01').parallax({ imageSrc: 'images/bg-investment.jpg' });
 $('.parallax-window--investment-02').parallax({ imageSrc: 'images/bg-investment-03.jpg' });
 
+$('.trading-appstore--andro').parallax({ imageSrc: 'images/bg-trading-android.jpg', naturalWidth: 1440 });
+$('.trading-appstore--ios').parallax({ imageSrc: 'images/bg-trading-ios.jpg', naturalWidth: 1440 });
+
 $('.our-services--homepage').parallax({
   imageSrc: 'images/slide-home-bg2.jpg',
-  naturalWidth: '1440px'
+  naturalWidth: 1440
 });
 
 // For adding active class on main navigation
 $(function(){
-  var url = window.location.pathname, 
+  var url = window.location.pathname,
     urlRegExp = new RegExp(url.replace(/\/$/,'') + "$");
     $('.navbar-nav a').each(function(){
       if(urlRegExp.test(this.href.replace(/\/$/,''))){
@@ -36,21 +39,52 @@ $(function(){
 
 $(document).ready(function() {
 
-  $('.dropdown').hover(            
+  $('.dropdown').hover(
     function() {
       $('.dropdown-menu', this).stop( true, true ).fadeIn('fast');
       $(this).toggleClass('active');
-      $('span', this).toggleClass('caret caret-up');                
+      $('span', this).toggleClass('caret caret-up');
     },
     function() {
       $('.dropdown-menu', this).stop( true, true ).fadeOut('fast');
       $(this).toggleClass('active');
-      $('span', this).toggleClass('caret caret-up');                
+      $('span', this).toggleClass('caret caret-up');
     }
   );
 
   $('.select2').select2({
-    minimumResultsForSearch: Infinity
+    minimumResultsForSearch: Infinity,
+    dropdownCssClass: "select2-result-orange"
+  });
+
+  $('.select2-lang').select2({
+    minimumResultsForSearch: Infinity,
+    dropdownCssClass: "select2-result-lang"
+  })
+
+  $('.select2-month').select2({
+    minimumResultsForSearch: Infinity,
+    dropdownCssClass: "select2-result-grey"
+  });
+
+  $('.select2-day').select2({
+    minimumResultsForSearch: Infinity,
+    placeholder: "Days"
+  });
+
+  $('.select2-year').select2({
+    minimumResultsForSearch: Infinity,
+    placeholder: "Year"
+  });
+
+  $('.select2-country').select2({
+    minimumResultsForSearch: Infinity,
+    placeholder: "Country"
+  });
+
+  $('.select2-city').select2({
+    minimumResultsForSearch: Infinity,
+    placeholder: "City"
   });
 
   $('.slider-homepage').slick();
